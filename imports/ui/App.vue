@@ -1,15 +1,17 @@
 <template>
-	<div>
-		<p>{{ greeting }}</p>
-		<temp-component></temp-component>
-	</div>
+	<v-app>
+		<v-container
+			><p>{{ greeting }}</p>
+			<temp-component></temp-component
+		></v-container>
+	</v-app>
 </template>
 
 <script>
 export default {
 	data() {
 		return {
-			greeting: 'Something',
+			greeting: 'Vue +  Meteor',
 		};
 	},
 };
