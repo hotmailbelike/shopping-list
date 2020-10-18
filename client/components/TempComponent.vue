@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<v-card class="mb-5">
-			<v-card-list>
+			<v-card-text>
 				<form @submit.prevent="saveNewItem">
 					<v-container>
 						<v-row align="center">
@@ -15,7 +15,7 @@
 						</v-row>
 					</v-container>
 				</form>
-			</v-card-list>
+			</v-card-text>
 		</v-card>
 
 		<v-card>
@@ -26,9 +26,9 @@
 							<v-list-item-title>
 								{{ item.name }} costs ${{ item.price }}
 							</v-list-item-title>
-							<v-list-subtitle>
+							<v-list-item-subtitle>
 								{{ item._id }}
-							</v-list-subtitle>
+							</v-list-item-subtitle>
 						</v-list-item-content>
 						<v-list-item-action>
 							<v-btn icon @click="handleDelete(item)">
@@ -45,7 +45,7 @@
 <script>
 import { Meteor } from 'meteor/meteor';
 
-import { Items } from '../imports/api/items';
+import { Items } from '../../imports/api/items';
 
 export default {
 	data() {
