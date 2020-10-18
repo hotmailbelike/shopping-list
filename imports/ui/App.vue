@@ -8,17 +8,27 @@
 				<router-link to="/about">About</router-link>
 			</header>
 
-			<router-view></router-view>
+			<router-view v-if="user"></router-view>
 		</v-container>
 	</v-app>
 </template>
 
 <script>
+import { Meteor } from 'meteor/meteor';
+import { Tracker } from 'meteor/tracker';
+
 export default {
 	data() {
 		return {
 			greeting: 'Vue +  Meteor',
+			user: null,
 		};
+	},
+	created() {
+		Tracker.autorun(() => {
+			this.user = Meteor.user();
+			console.log(this.user);
+		});
 	},
 };
 </script>
