@@ -13,4 +13,10 @@ Meteor.methods({
 	createItem(item) {
 		return Items.insert(item);
 	},
+	/* deleteItem(item) {
+		return Items.remove({ _id: item._id });
+	}, */
+	deleteItem({ _id }) {
+		return Items.remove({ _id });
+	},
 });

@@ -30,6 +30,11 @@
 								{{ item._id }}
 							</v-list-subtitle>
 						</v-list-item-content>
+						<v-list-item-action>
+							<v-btn icon @click="handleDelete(item)">
+								<v-icon>mdi-delete</v-icon>
+							</v-btn>
+						</v-list-item-action>
 					</v-list-item>
 				</v-list>
 			</v-card-text>
@@ -56,6 +61,15 @@ export default {
 				} else {
 					console.log(res);
 					this.item = { name: '', price: null };
+				}
+			});
+		},
+		handleDelete(item) {
+			Meteor.call('deleteItem', item, (err, res) => {
+				if (err) {
+					console.log('handleDelete -> err', err);
+				} else {
+					console.log(res);
 				}
 			});
 		},
